@@ -20,12 +20,6 @@ router.get('/:projectId/tasks', async (req: Request, res: Response): Promise<voi
           { members: { some: { userId } } },
         ],
       },
-      include: {
-        tasks: true,
-        members: {
-          include: { user: true }, 
-        },
-      },
     });
 
     if (!isMember) {
